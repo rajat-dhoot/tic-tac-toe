@@ -13,12 +13,12 @@ class App extends Component {
 
    handleClick = i => {
       const { history, isXNext } = this.state;
-      const squares = history[history.length - 1].squares.slice();
+      const squares = history[history.length - 1].squares;
       if (calculateWinner(squares) || squares[i]) return;
       const square = [...squares];
       square[i] = isXNext ? "X" : "0";
       this.setState({
-         history: history.concat({ squares: square }),
+         history: [...this.state.history, { squares: square }],
          isXNext: !isXNext
       });
    };
@@ -32,15 +32,16 @@ class App extends Component {
 
    handleUndo = () => {
       const { history } = this.state;
-      this.setState({
-         history: history.slice(0, history.length - 1),
-         isXNext: !this.state.isXNext
-      });
+      history.length > 1 &&
+         this.setState({
+            history: history.slice(0, history.length - 1),
+            isXNext: !this.state.isXNext
+         });
    };
 
    render() {
       const { history, isXNext } = this.state;
-      const squares = history[history.length - 1].squares.slice();
+      const squares = history[history.length - 1].squares;
       return (
          <div className="container">
             <header>Tic Tac Toe</header>
