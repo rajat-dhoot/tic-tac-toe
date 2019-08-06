@@ -1,0 +1,13 @@
+.board-row:after {
+   clear: both;
+   content: "";
+   display: table;
+}
+
+.status {
+   margin: 10px 0px 30px;
+   padding: 10px;
+   font-weight: bold;
+   font-size: 30px;
+   text-align: center;
+}

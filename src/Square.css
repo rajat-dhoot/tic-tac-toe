@@ -1,0 +1,18 @@
+.square {
+   background: #fff;
+   font-size: 2em;
+   font-weight: bold;
+   height: 3em;
+   width: 3em;
+   border: 1px solid #999;
+   float: left;
+   margin-top: -1px;
+   margin-right: -1px;
+   cursor: pointer;
+   padding: 0px;
+}
+
+.square:focus {
+   background: #ddd;
+   outline: none;
+}
